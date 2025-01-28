@@ -4,9 +4,11 @@ import com.sigma.DTO.CategoryDTO;
 import com.sigma.DTO.SaloonDTO;
 import com.sigma.DTO.ServiceDTO;
 import com.sigma.Model.ServiceOffering;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public interface ServiceOfferingService {
 
     ServiceOfferingService createService(SaloonDTO saloonDTO,

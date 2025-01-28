@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-
     @GetMapping("")
     public String HomeControllerHandler() {
         return "Service Microservice for saloon booking system";
