@@ -9,8 +9,11 @@ import com.sigma.repository.ServiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,14 +50,29 @@ public class ServiceOfferingServiceImp implements ServiceOfferingService {
 
     @Override
     public Set<ServiceOffering> getAllServiceBySaloonId(Long saloonId, Long categoryId) {
-        return Set.of();
+        Set<ServiceOffering> services=serviceRepository.findBySaloonId(saloonId);
+        if(categoryId!=null){
+            services=services.stream().filter(s->s.getCategoryId().equals(categoryId)).collect(Collectors.toSet());
+
+        }
+        return services;
+
     }
 
     @Override
     public Set<ServiceOffering> getServicesByIds(Set<Long> ids) {
-        return Set.of();
+        List<ServiceOffering> services=serviceRepository.findAllById(ids);
+        return new HashSet<>(services);
     }
 
+    @Override
+    public Optional<ServiceOfferingService> getServiceById(Long id) throws Exception {
+        Optional<ServiceOfferingService> serviceOffering= Optional.ofNullable(serviceRepository.findById(id).orElse(null));
+        if(serviceOffering==null){
+            throw  new Exception("Service not exist with id"+id);
+        }
+        return serviceOffering;
+    }
 
 
 }
