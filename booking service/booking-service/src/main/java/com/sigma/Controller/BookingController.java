@@ -31,7 +31,7 @@ public class BookingController {
         Set<ServiceDTO>  serviceDTOSet=new HashSet<>();
         ServiceDTO serviceDTO=new ServiceDTO();
         serviceDTO.setId(1L);
-        serviceDTO.setName("Hait cut for men");
+        serviceDTO.setName("Hair cut for men");
         serviceDTO.setPrice(399);
         serviceDTO.setDuration(45);
         serviceDTOSet.add(serviceDTO);
