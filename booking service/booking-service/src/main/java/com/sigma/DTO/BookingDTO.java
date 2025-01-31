@@ -11,18 +11,11 @@ import java.util.Set;
 
 public class BookingDTO {
     private Long id;
-
     private Long saloonId;
-
     private Long customerId;
-
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-
-
     private Set<Long> serviceIds;
-
     private BookingStatus status=BookingStatus.PENDING;
-
     private int totalServices;
 }
